@@ -2,11 +2,15 @@
   "name": "graphql-study",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "typeorm": "ts-node node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "apollo-server": "^2.24.0",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.32"
   },
   "devDependencies": {
     "nodemon": "^2.0.7",

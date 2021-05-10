@@ -1,11 +1,13 @@
-import { ApolloServer, Config } from 'apollo-server'
+import 'reflect-metadata'
 
-type StartServerParams = Pick<Config, 'typeDefs' | 'resolvers'>
+import { start } from './server'
 
-export function start({ typeDefs, resolvers }: StartServerParams) {
-  const server = new ApolloServer({ typeDefs, resolvers })
+import typeDefs from './graphql/typeDefs'
+import resolvers from './graphql/resolvers'
 
-  server
-    .listen()
-    .then(({ url }) => console.log(`🎈 Hi, I'm server running on ${url}`))
+try {
+  start({ typeDefs, resolvers })
+} catch(error) {
+  console.log('Deu pau no servidor :(')
+  console.error
 }

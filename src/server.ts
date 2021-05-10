@@ -1,6 +1,15 @@
-import { start } from './index'
+import { ApolloServer, Config } from 'apollo-server'
 
-import typeDefs from './graphql/typeDefs'
-import resolvers from './graphql/resolvers'
+import createConnection from './database'
 
-start({ typeDefs, resolvers })
+type StartServerParams = Pick<Config, 'typeDefs' | 'resolvers'>
+
+export async function start({ typeDefs, resolvers }: StartServerParams) {
+  await createConnection()
+
+  const server = new ApolloServer({ typeDefs, resolvers })
+
+  server
+    .listen()
+    .then(({ url }) => console.log(`🎈 Hi, I'm server running on ${url}`))
+}
