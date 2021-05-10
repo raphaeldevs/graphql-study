@@ -9,5 +9,5 @@ try {
   start({ typeDefs, resolvers })
 } catch(error) {
   console.log('Deu pau no servidor :(')
-  console.error
+  console.error(error)
 }
