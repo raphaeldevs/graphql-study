@@ -16,7 +16,7 @@ export default {
   password: DATABASE_PASSWORD,
   port: DATABASE_PORT,
   logging: true,
-  entities: [path.resolve('src', 'models', '**.ts')],
+  entities: [path.resolve('src', 'database', 'models', '**.ts')],
   migrations: [path.resolve('src', 'database', 'migrations', '**.ts')],
   cli: {
     migrationsDir: path.resolve('src', 'database', 'migrations')
