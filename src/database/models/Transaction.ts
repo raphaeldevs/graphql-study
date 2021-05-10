@@ -1,8 +1,8 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity('transactions')
 export class Transaction {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   readonly id: string
 
   @Column()
@@ -17,6 +17,6 @@ export class Transaction {
   @Column()
   category: string
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date
 }
