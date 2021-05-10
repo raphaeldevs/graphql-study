@@ -1,0 +1,32 @@
+enum Type {
+  deposit,
+  withdraw
+}
+
+type Transaction {
+  id: ID!
+  title: String
+  amount: Float
+  type: Type
+  category: String
+  created_at: String
+}
+
+input TransactionInput {
+  title: String!
+  amount: Float!
+  type: String!
+  category: String!
+}
+
+type Query {
+  transactions: [Transaction!]!
+}
+
+type Mutation {
+  createTransaction(data: TransactionInput!): Transaction!
+
+  updateTransaction(id: ID!, data: TransactionInput!): Transaction!
+
+  deleteTransaction(id: ID!): Boolean
+}
